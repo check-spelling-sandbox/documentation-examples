@@ -6,13 +6,13 @@ const rootElement = document.getElementById("root")!
 
 type State = {
 	conversationId?: string,
-	lastestEvent?: Record<string, any>,
+	latestEvent?: Record<string, any>,
 	messagesOutgoing: any[],
 	messagesIncoming: any[],
 }
 
 const state: State = {
-	lastestEvent: undefined,
+	latestEvent: undefined,
 	conversationId: undefined,
 	messagesOutgoing: [],
 	messagesIncoming: [],
@@ -30,7 +30,7 @@ const main = async () => {
 	});
 
 	client.on("customEvent", (event) => {
-		state.lastestEvent = event;
+		state.latestEvent = event;
 	});
 
 	client.on("messageSent", (message) => {
